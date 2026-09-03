@@ -144,7 +144,7 @@ The author does not endorse unauthorized access, identity impersonation, privacy
 
 # Copyright
 
-Copyright © 2026 **Achref Abouda**. All rights reserved.
+Copyright © 2025 **Achref Abouda**. All rights reserved.
 
 This project and its original source code were developed by **Achref Abouda** for educational, defensive, and authorized cybersecurity research purposes.
 
@@ -153,7 +153,7 @@ The project is distributed under the MIT License. Redistribution, modification, 
 **Author:** Achref Abouda
 **Project:** Face ID — Browser-Based Face Authentication
 **Category:** Cybersecurity / Computer Vision / Authentication
-**Year:** 2026
+**Year:** 2025
 
 ---
 
@@ -161,7 +161,7 @@ The project is distributed under the MIT License. Redistribution, modification, 
 
 MIT License
 
-Copyright © 2026 **Achref Abouda**
+Copyright © 2025 **Achref Abouda**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, subject to the following conditions:
 
@@ -173,6 +173,6 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMA
 
 ---
 
-**Developed by Achref Abouda — 2026**
+**Developed by Achref Abouda — 2025**
 **Face ID | Browser-Based Face Authentication**
 **Cybersecurity Research Project**
