@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Face ID{% endblock %}
+{% block content %}
+<div class="split">
+  <div class="split-hero">
+    <div class="eyebrow-mark">FACE ID</div>
+    <h1>Your face is the key.</h1>
+    <p>Enroll once with a short guided scan, then step back in with nothing but a look at the camera.</p>
+    <div class="scan-ring-wrap">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#2c3a63" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="88" fill="none" stroke="#2c3a63" stroke-width="1"/>
+        <circle id="sweep" cx="100" cy="100" r="70" fill="none" stroke="#5eead4" stroke-width="2"
+                stroke-linecap="round" stroke-dasharray="60 380" opacity="0.85">
+          <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100"
+                             dur="6s" repeatCount="indefinite"/>
+        </circle>
+        <path d="M70 70 h-10 v10 M130 70 h10 v10 M70 130 h-10 v-10 M130 130 h10 v-10"
+              stroke="#5eead4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <circle cx="100" cy="92" r="18" fill="none" stroke="#eef1fb" stroke-width="1.5" opacity="0.5"/>
+        <path d="M78 122 q22 -18 44 0" fill="none" stroke="#eef1fb" stroke-width="1.5" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="split-form">
+    <div class="form-card">
+      <h2>Continue</h2>
+      <p class="sub">Enter your name to sign up or log in.</p>
+
+      <form id="auth-form" method="post" action="{{ url_for('start') }}">
+        <label class="field-label" for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="e.g. Jordan Reyes" autocomplete="name" required>
+
+        <div class="button-row">
+          <button type="submit" name="mode" value="login" class="btn btn-secondary" id="login-btn" disabled>
+            Log In
+          </button>
+          <button type="submit" name="mode" value="signup" class="btn btn-primary" id="signup-btn" disabled>
+            Sign Up
+          </button>
+        </div>
+      </form>
+
+      {% if error %}
+      <div class="error-banner">{{ error }}</div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+{% endblock %}

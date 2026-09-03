@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Welcome{% endblock %}
+{% block content %}
+<div class="welcome-screen">
+  <div class="welcome-card">
+    <div class="eyebrow-mark">FACE ID</div>
+    <svg class="welcome-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="44" fill="none" stroke="#2c3a63" stroke-width="2"/>
+      <circle cx="50" cy="50" r="44" fill="none" stroke="#5eead4" stroke-width="3"
+              stroke-linecap="round" stroke-dasharray="276" stroke-dashoffset="276">
+        <animate attributeName="stroke-dashoffset" from="276" to="0" dur="0.8s" fill="freeze" />
+      </circle>
+      <path d="M32 52 L45 65 L70 36" fill="none" stroke="#eef1fb" stroke-width="4"
+            stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" stroke-dashoffset="60">
+        <animate attributeName="stroke-dashoffset" from="60" to="0" dur="0.5s" begin="0.5s" fill="freeze" />
+      </path>
+    </svg>
+
+    {% if status == "signup" %}
+    <h1>You're enrolled, {{ name }}.</h1>
+    <p>Your Face ID profile is saved. Next time, just log in and look at the camera.</p>
+    {% else %}
+    <h1>Welcome back, {{ name }}.</h1>
+    <p>Your identity was verified from a single look.</p>
+    {% endif %}
+
+    <a class="link-btn" href="{{ url_for('index') }}">Back to home</a>
+  </div>
+</div>
+{% endblock %}

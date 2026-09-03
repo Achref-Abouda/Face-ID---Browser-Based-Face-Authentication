@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Scanning…{% endblock %}
+{% block content %}
+<div class="capture-screen">
+  <div class="capture-topline">
+    <div class="who">{{ "Enrolling" if mode == "signup" else "Verifying" }} <strong>{{ name }}</strong></div>
+    <form method="post" action="{{ url_for('cancel') }}">
+      <button type="submit" class="cancel-link">Cancel</button>
+    </form>
+  </div>
+
+  <div class="step-track" id="step-track">
+    {% for s in steps %}
+    <div class="step-tick {% if loop.index0 < step_index %}done{% elif loop.index0 == step_index %}active{% endif %}"></div>
+    {% endfor %}
+  </div>
+
+  <div class="viewfinder">
+    <video id="video" autoplay playsinline muted></video>
+    <div class="brackets">
+      <svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 60 V35 a10 10 0 0 1 10 -10 H65" fill="none" stroke="#5eead4" stroke-width="3" stroke-linecap="round"/>
+        <path d="M170 60 V35 a10 10 0 0 0 -10 -10 H135" fill="none" stroke="#5eead4" stroke-width="3" stroke-linecap="round"/>
+        <path d="M30 190 V215 a10 10 0 0 0 10 10 H65" fill="none" stroke="#5eead4" stroke-width="3" stroke-linecap="round"/>
+        <path d="M170 190 V215 a10 10 0 0 1 -10 10 H135" fill="none" stroke="#5eead4" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="frame-flash" id="flash"></div>
+  </div>
+
+  <div class="instruction" id="instruction">
+    <h2 id="instruction-title"></h2>
+    <p id="instruction-hint"></p>
+  </div>
+
+  <div class="status-line" id="status-line"></div>
+
+  <canvas id="canvas" style="display:none;"></canvas>
+</div>
+
+<script>
+  window.CAPTURE_CONFIG = {
+    steps: {{ steps | tojson }},
+    stepCopy: {{ step_copy | tojson }},
+    stepIndex: {{ step_index }},
+    apiUrl: "{{ url_for('api_capture') }}",
+  };
+</script>
+<script src="{{ url_for('static', filename='js/capture.js') }}"></script>
+{% endblock %}

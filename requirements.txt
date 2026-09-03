@@ -1,0 +1,9 @@
+Flask==3.0.3
+face-recognition==1.3.0
+numpy==1.26.4
+Pillow==10.4.0
+
+# face-recognition depends on dlib, which needs to compile from source.
+# On most systems `pip install -r requirements.txt` will build it
+# automatically (it can take several minutes). See README.md if the
+# build fails on your machine.
